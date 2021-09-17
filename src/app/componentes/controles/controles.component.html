@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let coleccion of colecciones" id="columna">
+            <button class="botonColeccion" (click)="cambiarNumeroColecion(coleccion)">{{coleccion.nombre}}</button>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="base">
+
+    <div id="filtros">
+
+
+
+        <div class="input-group" id="buscar">
+            <input type="number" class="form-control" placeholder="Año" [(ngModel)]="busquedaAgno" (input)="filtroEstado = -1">
+            <span class="input-group-btn" id="botonBuscar">
+                      <button class="btn btn-primary" type="button" (click)="busquedaAgno=''">X</button>
+                </span>
+        </div>
+        <div class="container">
+            <button class="btn btn-primary" type="button" id="filtroEncontrado" (click)="cambiarFiltroEstado(-1)">Todas</button>
+        </div>
+        <div class="container">
+            <button class="btn btn-primary" type="button" id="filtroEncontrado" (click)="cambiarFiltroEstado(1)">Encontradas</button>
+        </div>
+        <div class="container">
+            <button class="btn btn-primary" type="button" id="filtroEncontrado" (click)="cambiarFiltroEstado(0)">Faltantes</button>
+        </div>
+
+
+
+        <div class="container">
+
+            <div id="numeroMonedas">
+
+                <div *ngIf="coleccionActual!=null">
+                    <h3 id="monedasContador">{{monedasEncontradas}}/{{coleccionActual.cantidadMonedas}}</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <div id="contenidoPrincipalr">
+        <app-display (monedasEncontradasEvento)="cambiarMonedasEncontradas($event)" [numeroColeecion]="numeroColeecion" [filtroEstado]="filtroEstado" [busquedaAgno]="busquedaAgno"></app-display>
+
+
+    </div>
+
+
+
+
+
+
+</div>
