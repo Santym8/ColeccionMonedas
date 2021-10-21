@@ -8,6 +8,8 @@ import { Moneda } from '../interfaces/moneda';
 export class BaseDeDatosService {
 
   private root = "http://127.0.0.1:8000/"
+  
+  //private root = "http://192.168.56.1:8000/"
 
 
   constructor(public http: HttpClient) { }
